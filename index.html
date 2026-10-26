@@ -1,80 +1,550 @@
 <!DOCTYPE html>
 <html lang="id">
 <head>
-<meta charset="utf-8">
-<meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
-<title>Agenda Harian MAN 1 Nganjuk</title>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>ORBIT — Circular Economy Marketplace</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@400;500;600;700;800&family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet">
 <style>
-:root{--bg:#e8eef5;--card:#fff;--tx:#152033;--mu:#5b6b7e;--pr:#1f5fa8;--pr2:#e3edf9;--bd:#d6e0ec;--wa:#b45309;--wab:#fef3c7;--er:#b91c1c;color-scheme:light;box-sizing:border-box;padding-top:env(safe-area-inset-top,0px);padding-bottom:env(safe-area-inset-bottom,0px)}
-@media (prefers-color-scheme:dark){:root:not([data-theme="light"]){--bg:#0c1420;--card:#142033;--tx:#e6edf7;--mu:#9fb0c6;--pr:#6aa8f0;--pr2:#1c3050;--bd:#2a3d58;--wa:#fbbf24;--wab:#3a2e0c;--er:#f87171;color-scheme:dark}}
-:root[data-theme="dark"]{--bg:#0c1420;--card:#142033;--tx:#e6edf7;--mu:#9fb0c6;--pr:#6aa8f0;--pr2:#1c3050;--bd:#2a3d58;--wa:#fbbf24;--wab:#3a2e0c;--er:#f87171;color-scheme:dark}
-*{box-sizing:border-box}html{scroll-padding-top:env(safe-area-inset-top,0px)}
-body{margin:0;background:var(--bg);color:var(--tx);font:16px/1.45 system-ui,-apple-system,"Segoe UI",Roboto,sans-serif;padding-bottom:90px}
-.w{max-width:720px;margin:0 auto;padding:0 14px}
-header{background:var(--card);border-bottom:1px solid var(--bd);padding:10px 0}
-header .w{display:flex;justify-content:space-between;align-items:center;gap:10px}
-h1{font-size:19px;margin:0;line-height:1.2}header small{color:var(--mu);font-size:13px}
-.who{border:0;border-radius:20px;padding:9px 14px;font:600 13px inherit;background:var(--pr2);color:var(--pr);max-width:55%;text-align:right;cursor:pointer}
-.tabs{display:flex;gap:6px;margin:12px 0}
-.tab{flex:1;padding:11px;border:1px solid var(--bd);border-radius:12px;background:var(--card);color:var(--tx);font:600 15px inherit;cursor:pointer}
-.tab.on{background:var(--pr);color:#fff;border-color:var(--pr)}
-@media (prefers-color-scheme:dark){:root:not([data-theme="light"]) .tab.on{color:#06101f}}
-.nav{display:flex;align-items:center;gap:8px;margin-bottom:10px}
-.nav b{flex:1;text-align:center;font-size:16px}
-.ib{width:44px;height:44px;border-radius:12px;border:1px solid var(--bd);background:var(--card);color:var(--tx);font-size:20px;cursor:pointer}
-.today{height:44px;padding:0 12px;border-radius:12px;border:1px solid var(--pr);background:var(--pr2);color:var(--pr);font:600 14px inherit;cursor:pointer}
-.fl{display:grid;grid-template-columns:1fr 1fr;gap:8px;margin-bottom:12px}
-.fl input{grid-column:1/-1}
-input,select,textarea{width:100%;padding:11px;border:1px solid var(--bd);border-radius:10px;background:var(--card);color:var(--tx);font:16px inherit}
-textarea{min-height:70px;resize:vertical}
-label{display:block;font-size:13px;color:var(--mu);margin:10px 0 4px;font-weight:600}
-.dh{font-weight:700;color:var(--pr);margin:16px 0 6px;font-size:15px}
-.c{background:var(--card);border:1px solid var(--bd);border-left:5px solid var(--pr);border-radius:12px;padding:12px;margin-bottom:10px}
-.c.st-Selesai{opacity:.8}.c.st-Dibatalkan{opacity:.6;border-left-color:var(--mu)}.c.st-Dibatalkan .t{text-decoration:line-through}
-.tm{font-weight:700;color:var(--pr);font-size:14px}.t{font-weight:700;font-size:17px;margin:2px 0}
-.m{color:var(--mu);font-size:14px}.m span{display:block}
-.ch{display:inline-block;font-size:12px;font-weight:600;padding:2px 9px;border-radius:20px;background:var(--pr2);color:var(--pr);margin-right:4px}
-.ch.s{background:var(--bd);color:var(--tx)}
-.bt{background:var(--wab);color:var(--wa);padding:6px 9px;border-radius:8px;font-size:13px;margin-top:6px;font-weight:600}
-.hs{background:var(--pr2);border-radius:8px;padding:8px;margin-top:8px;font-size:14px}
-.ac{display:flex;gap:8px;margin-top:10px}
-.b{padding:10px 14px;border-radius:10px;border:1px solid var(--bd);background:var(--card);color:var(--tx);font:600 14px inherit;cursor:pointer}
-.b.p{background:var(--pr);color:#fff;border-color:var(--pr)}.b.d{color:var(--er)}
-@media (prefers-color-scheme:dark){:root:not([data-theme="light"]) .b.p{color:#06101f}}
-.em{text-align:center;color:var(--mu);padding:30px 10px;border:1px dashed var(--bd);border-radius:12px}
-.fab{position:fixed;right:16px;bottom:calc(16px + env(safe-area-inset-bottom,0px));background:var(--pr);color:#fff;border:0;border-radius:30px;padding:16px 22px;font:700 16px inherit;box-shadow:0 4px 14px rgba(0,0,0,.3);cursor:pointer;z-index:5}
-@media (prefers-color-scheme:dark){:root:not([data-theme="light"]) .fab{color:#06101f}}
-.ov{position:fixed;inset:0;background:rgba(0,0,0,.5);z-index:10;display:none;align-items:flex-end;justify-content:center}
-.ov.on{display:flex}
-.sh{background:var(--bg);width:100%;max-width:560px;max-height:92%;overflow:auto;border-radius:18px 18px 0 0;padding:16px 16px calc(20px + env(safe-area-inset-bottom,0px))}
-.sh h2{margin:0 0 4px;font-size:18px}
-.r2{display:grid;grid-template-columns:1fr 1fr;gap:8px}
-.pk{display:block;width:100%;text-align:left;padding:12px;margin-bottom:6px;border:1px solid var(--bd);border-radius:10px;background:var(--card);color:var(--tx);font:15px inherit;cursor:pointer}
-.pk.on{border-color:var(--pr);background:var(--pr2)}.pk small{color:var(--mu)}
-.gh{font-size:12px;color:var(--mu);font-weight:700;text-transform:uppercase;margin:10px 0 4px}
-.bn{background:var(--wab);color:var(--wa);padding:10px;border-radius:10px;margin-bottom:10px;font-size:14px}
-.foot{display:flex;gap:8px;justify-content:space-between;margin-top:20px}
-@media print{header .who,.tabs,.nav .ib,.today,.fl,.fab,.ac,.ov{display:none!important}body{background:#fff;color:#000}.c{break-inside:avoid}}
-.app{display:flex;min-height:100vh}.sb{display:none}main{flex:1;min-width:0}
-.hl{display:flex;align-items:center;gap:10px}.hl img{width:38px;height:auto}
-.cd{background:var(--card);border:1px solid var(--bd);border-radius:16px;padding:14px;box-shadow:0 1px 3px rgba(20,40,70,.06)}
-.cd h2{margin:0 0 4px;font-size:18px}
-.g2{display:grid;gap:10px;margin:12px 0 10px}.g4{display:grid;grid-template-columns:1fr 1fr;gap:10px;margin-bottom:10px}
-.st b{display:block;font-size:30px;line-height:1.1;margin:4px 0 8px}.st .b{padding:6px 12px;font-size:13px}
-.bars{display:flex;gap:8px;height:210px;margin-top:10px;border-bottom:1px solid var(--bd)}
-.bc{flex:1;display:flex;flex-direction:column;align-items:center;min-width:0}
-.bn2{height:18px;font-size:12px;font-weight:700;color:var(--mu)}
-.bs{flex:1;width:100%;max-width:48px;display:flex;flex-direction:column-reverse;border-radius:6px 6px 0 0;overflow:hidden}
-.bs i{display:block;width:100%}
-.bls{display:flex;gap:8px;margin-top:4px}.bls div{flex:1;text-align:center;font-size:12px;color:var(--mu)}.bls .tdy{color:var(--pr);font-weight:700}
-.lgd{display:flex;flex-wrap:wrap;gap:6px 12px;margin-top:10px;font-size:12px;color:var(--mu)}.lgd i{display:inline-block;width:10px;height:10px;border-radius:3px;margin-right:4px}
-.sb .lg{display:flex;align-items:center;gap:10px;margin-bottom:18px}.sb .lg img{width:50px;height:auto}.sb .lg b{font-size:16px}.sb .lg small{display:block;color:var(--mu);font-size:12px}
-.sb nav button,.lo{display:block;width:100%;text-align:left;padding:12px 14px;margin-bottom:4px;border:0;border-radius:12px;background:transparent;color:var(--tx);font:600 15px inherit;cursor:pointer}
-.sb nav button.on{background:var(--pr2);color:var(--pr)}.lo{margin-top:auto;margin-bottom:0;border:1px solid var(--bd)}
-@media (min-width:900px){.sb{display:flex;flex-direction:column;width:240px;flex:none;position:sticky;top:0;height:100vh;background:var(--card);border-right:1px solid var(--bd);padding:18px 12px}.tabs,.hl img{display:none}.w{max-width:1000px;padding:0 22px}.g4{grid-template-columns:repeat(4,1fr)}.g2{grid-template-columns:2fr 1fr}.bars{height:260px}}
-@media print{.sb,header,.tabs{display:none!important}}
+  :root{
+    --green-900:#0f4a2c;
+    --green-700:#146c3f;
+    --green-600:#1a8a4f;
+    --green-500:#22a35f;
+    --green-100:#e7f5ec;
+    --green-50:#f4faf6;
+    --ink:#16241c;
+    --ink-soft:#5b6b62;
+    --line:#e6ede8;
+    --paper:#fbfdfc;
+    --amber:#c98a2e;
+    --purple:#8b6fd9;
+    --blue:#4c8bdb;
+    --radius:14px;
+  }
+  *{box-sizing:border-box; margin:0; padding:0;}
+  body{
+    font-family:'Inter', sans-serif;
+    background:#eef3ef;
+    color:var(--ink);
+    -webkit-font-smoothing:antialiased;
+  }
+  h1,h2,h3,.display{font-family:'Plus Jakarta Sans', sans-serif;}
+  a{text-decoration:none; color:inherit;}
+  button{font-family:inherit; cursor:pointer; border:none;}
+
+  .app{display:grid; grid-template-columns:250px 1fr; min-height:100vh;}
+
+  /* SIDEBAR */
+  .sidebar{
+    background:var(--paper);
+    border-right:1px solid var(--line);
+    padding:22px 16px 20px;
+    display:flex; flex-direction:column;
+    position:sticky; top:0; height:100vh; overflow-y:auto;
+  }
+  .brand{display:flex; align-items:center; gap:10px; padding:4px 8px 22px;}
+  .brand-mark{
+    width:38px; height:38px; border-radius:10px;
+    background:conic-gradient(from 220deg, var(--green-500), var(--green-900), var(--green-500));
+    display:flex; align-items:center; justify-content:center;
+    color:#fff; font-weight:800; font-size:15px; font-family:'Plus Jakarta Sans';
+    flex-shrink:0;
+  }
+  .brand-text{line-height:1.15;}
+  .brand-text .name{font-family:'Plus Jakarta Sans'; font-weight:800; font-size:18px; color:var(--green-900); letter-spacing:.2px;}
+  .brand-text .tag{font-size:9px; font-weight:700; color:var(--ink-soft); letter-spacing:.6px;}
+
+  .nav-section-label{
+    font-size:10.5px; font-weight:700; letter-spacing:.8px; color:#93a29a;
+    margin:18px 10px 8px;
+  }
+  .nav-item{
+    display:flex; align-items:center; gap:11px;
+    padding:9px 12px; border-radius:10px;
+    font-size:14px; font-weight:500; color:#3d4a42;
+    margin-bottom:2px; transition:background .15s;
+  }
+  .nav-item svg{width:18px; height:18px; flex-shrink:0; opacity:.75;}
+  .nav-item:hover{background:var(--green-50);}
+  .nav-item.active{
+    background:var(--green-700); color:#fff; font-weight:600;
+    box-shadow:0 4px 10px rgba(20,108,63,.25);
+  }
+  .nav-item.active svg{opacity:1;}
+
+  .sidebar-cta{
+    margin-top:auto;
+    background:linear-gradient(160deg, var(--green-100), #eaf3ea);
+    border:1px solid #dcebe0;
+    border-radius:16px;
+    padding:16px;
+    position:relative; overflow:hidden;
+  }
+  .sidebar-cta::after{
+    content:"";
+    position:absolute; right:-18px; bottom:-22px;
+    width:90px; height:90px; border-radius:50%;
+    background:radial-gradient(circle at 30% 30%, var(--green-500), var(--green-900));
+    opacity:.18;
+  }
+  .sidebar-cta p{font-size:12.5px; font-weight:700; line-height:1.4; color:var(--green-900); margin-bottom:12px; position:relative;}
+  .sidebar-cta button{
+    background:var(--green-700); color:#fff; font-size:12px; font-weight:600;
+    padding:8px 14px; border-radius:8px; position:relative;
+  }
+
+  /* MAIN */
+  .main{padding:20px 28px 48px;}
+
+  .topbar{display:flex; align-items:center; gap:16px; margin-bottom:20px;}
+  .icon-btn{
+    width:38px; height:38px; border-radius:10px; background:#fff; border:1px solid var(--line);
+    display:flex; align-items:center; justify-content:center; flex-shrink:0; color:#4a5850;
+  }
+  .search{
+    flex:1; display:flex; align-items:center; gap:10px;
+    background:#fff; border:1px solid var(--line); border-radius:11px;
+    padding:9px 16px; color:#8a978f; font-size:13.5px;
+  }
+  .search svg{width:16px; height:16px; flex-shrink:0;}
+  .topbar-right{display:flex; align-items:center; gap:10px; margin-left:auto;}
+  .bell-wrap{position:relative;}
+  .badge{
+    position:absolute; top:-4px; right:-4px; background:#e0473f; color:#fff;
+    font-size:9.5px; font-weight:700; width:16px; height:16px; border-radius:50%;
+    display:flex; align-items:center; justify-content:center; border:2px solid #eef3ef;
+  }
+  .user-chip{display:flex; align-items:center; gap:9px; background:#fff; border:1px solid var(--line); border-radius:11px; padding:6px 12px 6px 8px;}
+  .avatar{width:28px; height:28px; border-radius:50%; background:var(--green-100); display:flex; align-items:center; justify-content:center; color:var(--green-700);}
+  .user-chip .name{font-size:12.5px; font-weight:700; line-height:1.2;}
+  .user-chip .role{font-size:10.5px; color:var(--ink-soft); line-height:1.2;}
+
+  /* HERO */
+  .hero{
+    display:grid; grid-template-columns:1.3fr 1fr;
+    background:linear-gradient(120deg, var(--green-100) 0%, #eef6ee 60%, #f7fbf6 100%);
+    border:1px solid #e1eee3; border-radius:18px; padding:30px 34px;
+    gap:20px; align-items:center; margin-bottom:18px;
+    position:relative; overflow:hidden;
+  }
+  .hero h1{font-size:27px; font-weight:800; line-height:1.28; color:var(--ink); margin-bottom:12px; letter-spacing:-.3px;}
+  .hero p{font-size:13.5px; color:var(--ink-soft); line-height:1.55; max-width:420px; margin-bottom:18px;}
+  .btn-primary{
+    display:inline-flex; align-items:center; gap:8px;
+    background:var(--green-700); color:#fff; font-weight:700; font-size:13.5px;
+    padding:11px 20px; border-radius:10px;
+    box-shadow:0 8px 18px rgba(20,108,63,.28);
+  }
+  .hero-art{display:flex; align-items:center; justify-content:center;}
+
+  /* STATS */
+  .stats-grid{display:grid; grid-template-columns:repeat(4,1fr); gap:16px; margin-bottom:22px;}
+  .stat-card{
+    background:#fff; border:1px solid var(--line); border-radius:16px;
+    padding:18px 18px; display:flex; align-items:flex-start; justify-content:space-between; gap:10px; box-shadow: 0 4px 3px rgba(20,108,63,.1);
+  }
+  .stat-card .label{font-size:12px; color:var(--ink-soft); font-weight:500; margin-bottom:6px;}
+  .stat-card .value{font-size:24px; font-weight:800; font-family:'Plus Jakarta Sans'; color:var(--ink); letter-spacing:-.3px;}
+  .stat-card .sub{font-size:11px; color:#93a29a; margin-top:3px;}
+  .stat-icon{
+    width:42px; height:42px; border-radius:50%; flex-shrink:0;
+    display:flex; align-items:center; justify-content:center;
+  }
+  .stat-icon svg{width:20px; height:20px;}
+  .si-1{background:#e9f3ff; color:#3d7fd9;}
+  .si-2{background:#e7f5ec; color:var(--green-700);}
+  .si-3{background:#fdeee7; color:#d97740;}
+  .si-4{background:#eaf7e6; color:#3f9e4d;}
+
+  /* CONTENT GRID */
+  .content-grid{display:grid; grid-template-columns:1fr 350px; gap:18px; align-items:start;}
+
+  .panel{background:#fff; border:1px solid var(--line); border-radius:16px; padding:20px 22px; margin-bottom:18px;}
+  .panel-head{display:flex; align-items:center; justify-content:between; justify-content:space-between; margin-bottom:16px;}
+  .panel-head h2{font-size:16px; font-weight:800; letter-spacing:-.2px;}
+  .see-all{font-size:12px; font-weight:700; color:var(--green-700);}
+
+  .cat-grid{display:grid; grid-template-columns:repeat(6,1fr); gap:12px;}
+  .cat-card{
+    border:1px solid var(--line); border-radius:13px; padding:16px 8px;
+    display:flex; flex-direction:column; align-items:center; gap:9px;
+    text-align:center; transition:border-color .15s, transform .15s;
+  }
+  .cat-card:hover{border-color:var(--green-500); transform:translateY(-2px);}
+  .cat-icon{width:44px; height:44px; border-radius:11px; display:flex; align-items:center; justify-content:center;}
+  .cat-icon svg{width:22px; height:22px;}
+  .cat-card .cat-name{font-size:11.5px; font-weight:600; line-height:1.3;}
+
+  .product-grid{display:grid; grid-template-columns:repeat(4,1fr); gap:14px;}
+  .product-card{border:1px solid var(--line); border-radius:14px; overflow:hidden; display:flex; flex-direction:column;}
+  .product-img{height:118px; width:100%; object-fit:cover; background:var(--green-50);}
+  .product-body{padding:12px 13px 14px;}
+  .product-name{font-size:13px; font-weight:700; line-height:1.32; margin-bottom:5px; min-height:34px;}
+  .product-pesantren{font-size:11px; color:var(--ink-soft); margin-bottom:8px;}
+  .product-price{font-size:13.5px; font-weight:800; color:var(--green-700); margin-bottom:9px;}
+  .product-foot{display:flex; align-items:center; justify-content:space-between; font-size:10.5px; color:#93a29a;}
+  .product-foot .loc{display:flex; align-items:center; gap:4px;}
+  .product-foot svg{width:12px; height:12px;}
+  .heart{width:26px; height:26px; border-radius:50%; border:1px solid var(--line); display:flex; align-items:center; justify-content:center; color:#c4cdc7;}
+
+  /* FORUM */
+  .forum-item{display:flex; gap:11px; padding:13px 0; border-bottom:1px solid var(--line);}
+  .forum-item:last-of-type{border-bottom:none;}
+  .forum-avatar{width:38px; height:38px; border-radius:50%; flex-shrink:0; display:flex; align-items:center; justify-content:center; color:#fff;}
+  .fa-1{background:var(--purple);} .fa-2{background:var(--green-500);} .fa-3{background:var(--blue);}
+  .forum-tag{display:inline-block; font-size:9.5px; font-weight:700; padding:2px 8px; border-radius:20px; margin-bottom:6px;}
+  .tag-diskusi{background:#f0eaff; color:var(--purple);}
+  .tag-tanya{background:var(--green-100); color:var(--green-700);}
+  .tag-kolab{background:#e9f1fd; color:var(--blue);}
+  .forum-title{font-size:13px; font-weight:700; line-height:1.35; margin-bottom:6px;}
+  .forum-meta{font-size:11px; color:#93a29a; display:flex; align-items:center; gap:12px;}
+  .forum-meta span{display:flex; align-items:center; gap:4px;}
+  .forum-meta svg{width:12px; height:12px;}
+  .btn-block{
+    width:100%; background:var(--green-700); color:#fff; font-weight:700; font-size:13px;
+    padding:11px; border-radius:10px; margin-top:14px;
+  }
+
+  /* HOW IT WORKS */
+  .how-panel{background:var(--green-50); border:1px solid #dfeee2; border-radius:18px; padding:24px 28px; margin-bottom:20px;}
+  .how-panel h2{font-size:15px; font-weight:800; margin-bottom:18px;}
+  .how-row{display:grid; grid-template-columns:repeat(5,1fr); gap:6px; align-items:start;}
+  .how-step{display:flex; gap:10px; align-items:flex-start; position:relative;}
+  .how-num{
+    width:36px; height:36px; border-radius:50%; background:var(--green-700); color:#fff; flex-shrink:0;
+    display:flex; align-items:center; justify-content:center;
+  }
+  .how-num svg{width:16px; height:16px;}
+  .how-step h3{font-size:12.5px; font-weight:700; margin-bottom:3px;}
+  .how-step p{font-size:11px; color:var(--ink-soft); line-height:1.4;}
+  .how-arrow{color:#a9c2ae; align-self:center; font-size:16px; padding-top:8px;}
+
+  /* FOOTER VALUES */
+  .values-row{display:grid; grid-template-columns:repeat(4,1fr); gap:22px; padding:6px 6px 0;}
+  .value-item{display:flex; gap:11px; align-items:flex-start;}
+  .value-icon{width:38px; height:38px; border-radius:10px; background:var(--green-100); color:var(--green-700); display:flex; align-items:center; justify-content:center; flex-shrink:0;}
+  .value-icon svg{width:18px; height:18px;}
+  .value-item h3{font-size:12.5px; font-weight:700; margin-bottom:3px;}
+  .value-item p{font-size:11px; color:var(--ink-soft); line-height:1.4;}
+
+  @media (max-width: 1100px){
+    .content-grid{grid-template-columns:1fr;}
+    .stats-grid{grid-template-columns:repeat(2,1fr);}
+    .product-grid{grid-template-columns:repeat(2,1fr);}
+    .cat-grid{grid-template-columns:repeat(3,1fr);}
+    .how-row{grid-template-columns:1fr; gap:16px;}
+    .how-arrow{display:none;}
+    .values-row{grid-template-columns:repeat(2,1fr); row-gap:18px;}
+  }
+  @media (max-width: 760px){
+    .app{grid-template-columns:1fr;}
+    .sidebar{display:none;}
+    .hero{grid-template-columns:1fr;}
+    .stats-grid{grid-template-columns:1fr 1fr;}
+    .product-grid{grid-template-columns:1fr 1fr;}
+    .values-row{grid-template-columns:1fr;}
+  }
 </style>
 </head>
 <body>
 <div class="app">
-<aside class="sb"><div class="lg"><img src="data:image/png;base64,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
+
+  <!-- SIDEBAR -->
+  <aside class="sidebar">
+    <div class="">
+      <img src="orbit.png" width="200" height="100" alt="a" />
+    </div>
+
+    <a href="#" class="nav-item active">
+      <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M3 10.5 12 3l9 7.5"/><path d="M5 9.5V21h14V9.5"/></svg>
+      Dashboard
+    </a>
+
+    <div class="nav-section-label">MENU UTAMA</div>
+    <a href="#" class="nav-item"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><rect x="3" y="7" width="18" height="14" rx="2"/><path d="M8 7V5a4 4 0 0 1 8 0v2"/></svg> Marketplace</a>
+    <a href="#" class="nav-item"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M17 2 21 6 17 10"/><path d="M3 12v-1a4 4 0 0 1 4-4h14"/><path d="M7 22 3 18 7 14"/><path d="M21 12v1a4 4 0 0 1-4 4H3"/></svg> Sirkular Ekonomi</a>
+    <a href="#" class="nav-item"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M21 11.5a8.4 8.4 0 0 1-.9 3.8 8.5 8.5 0 0 1-7.6 4.7 8.4 8.4 0 0 1-3.8-.9L3 21l1.9-5.7a8.4 8.4 0 0 1-.9-3.8 8.5 8.5 0 0 1 4.7-7.6 8.4 8.4 0 0 1 3.8-.9h.5a8.48 8.48 0 0 1 8 8v.5Z"/></svg> Forum Diskusi</a>
+    <a href="#" class="nav-item"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><rect x="2" y="4" width="20" height="16" rx="2"/><path d="m22 6-10 7L2 6"/></svg> Pesan Saya</a>
+    <a href="#" class="nav-item"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><rect x="3" y="4" width="18" height="18" rx="2"/><path d="M3 10h18M8 2v4M16 2v4"/></svg> Transaksi</a>
+    <a href="#" class="nav-item"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M20.8 4.6a5.5 5.5 0 0 0-7.8 0L12 5.6l-1-1a5.5 5.5 0 0 0-7.8 7.8l1 1L12 21l7.8-7.6 1-1a5.5 5.5 0 0 0 0-7.8Z"/></svg> Favorit</a>
+    <a href="#" class="nav-item"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><circle cx="9" cy="21" r="1"/><circle cx="19" cy="21" r="1"/><path d="M2.05 2.05h2l2.66 12.42a2 2 0 0 0 2 1.58h9.78a2 2 0 0 0 2-1.58l1.65-7.42H5.12"/></svg> Keranjang</a>
+
+    <div class="nav-section-label">MENU LAINNYA</div>
+    <a href="#" class="nav-item"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><circle cx="12" cy="8" r="4"/><path d="M4 21c0-4.4 3.6-8 8-8s8 3.6 8 8"/></svg> Profil Saya</a>
+    <a href="#" class="nav-item"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M3 10.5 12 3l9 7.5V21H3z"/></svg> Pesantren Saya</a>
+    <a href="#" class="nav-item"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><circle cx="12" cy="12" r="3"/><path d="M19.4 15a1.7 1.7 0 0 0 .3 1.9l.1.1a2 2 0 1 1-2.8 2.8l-.1-.1a1.7 1.7 0 0 0-1.9-.3 1.7 1.7 0 0 0-1 1.5V21a2 2 0 1 1-4 0v-.2a1.7 1.7 0 0 0-1-1.6 1.7 1.7 0 0 0-1.9.3l-.1.1a2 2 0 1 1-2.8-2.8l.1-.1a1.7 1.7 0 0 0 .3-1.9 1.7 1.7 0 0 0-1.5-1H3a2 2 0 1 1 0-4h.2a1.7 1.7 0 0 0 1.5-1 1.7 1.7 0 0 0-.3-1.9l-.1-.1a2 2 0 1 1 2.8-2.8l.1.1a1.7 1.7 0 0 0 1.9.3H9a1.7 1.7 0 0 0 1-1.5V3a2 2 0 1 1 4 0v.2a1.7 1.7 0 0 0 1 1.5 1.7 1.7 0 0 0 1.9-.3l.1-.1a2 2 0 1 1 2.8 2.8l-.1.1a1.7 1.7 0 0 0-.3 1.9V9a1.7 1.7 0 0 0 1.5 1H21a2 2 0 1 1 0 4h-.2a1.7 1.7 0 0 0-1.5 1Z"/></svg> Pengaturan</a>
+    <a href="#" class="nav-item"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><circle cx="12" cy="12" r="10"/><path d="M9.1 9a3 3 0 0 1 5.8 1c0 2-3 2-3 4"/><path d="M12 17h.01"/></svg> Bantuan</a>
+    <a href="#" class="nav-item"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M9 21H5a2 2 0 0 1-2-2V5a2 2 0 0 1 2-2h4"/><path d="M16 17l5-5-5-5"/><path d="M21 12H9"/></svg> Keluar</a>
+
+    <div class="sidebar-cta">
+      <p>Bersama Pesantren Membangun Ekonomi Sirkular untuk Masa Depan Lestari</p>
+      <button>Pelajari Lebih Lanjut →</button>
+    </div>
+  </aside>
+
+  <!-- MAIN -->
+  <main class="main">
+
+    <div class="topbar">
+      <button class="icon-btn"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" width="18" height="18"><path d="M3 6h18M3 12h18M3 18h18"/></svg></button>
+      <div class="search">
+        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><circle cx="11" cy="11" r="7"/><path d="m21 21-4.35-4.35"/></svg>
+        Cari produk, kategori, atau pesantren...
+      </div>
+      <div class="topbar-right">
+        <div class="bell-wrap">
+          <button class="icon-btn"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" width="17" height="17"><path d="M6 8a6 6 0 0 1 12 0c0 7 3 9 3 9H3s3-2 3-9"/><path d="M10.3 21a2 2 0 0 0 3.4 0"/></svg></button>
+          <span class="badge">3</span>
+        </div>
+        <button class="icon-btn"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" width="17" height="17"><path d="M21 11.5a8.4 8.4 0 0 1-.9 3.8 8.5 8.5 0 0 1-7.6 4.7 8.4 8.4 0 0 1-3.8-.9L3 21l1.9-5.7a8.4 8.4 0 0 1-.9-3.8 8.5 8.5 0 0 1 4.7-7.6 8.4 8.4 0 0 1 3.8-.9h.5a8.48 8.48 0 0 1 8 8v.5Z"/></svg></button>
+        <div class="user-chip">
+          <div class="avatar"><svg viewBox="0 0 24 24" width="15" height="15" fill="none" stroke="currentColor" stroke-width="2"><circle cx="12" cy="8" r="4"/><path d="M4 21c0-4.4 3.6-8 8-8s8 3.6 8 8"/></svg></div>
+          <div>
+            <div class="name">Ponpes Al-Hikmah</div>
+            <div class="role">Admin</div>
+          </div>
+          <svg viewBox="0 0 24 24" width="13" height="13" fill="none" stroke="currentColor" stroke-width="2"><path d="m6 9 6 6 6-6"/></svg>
+        </div>
+      </div>
+    </div>
+
+    <!-- HERO -->
+    <section class="hero">
+      <div>
+        <h1>Sambungkan Kelebihan,<br>Penuhi Kebutuhan,<br>Ciptakan Manfaat.</h1>
+        <p>ORBIT adalah marketplace dan forum bisnis pesantren dalam ekosistem ekonomi sirkular.</p>
+        <a href="#" class="btn-primary">Jelajahi Marketplace →</a>
+      </div>
+      <div class="hero-art">
+        <svg viewBox="0 0 220 180" width="220" height="180">
+          <path d="M110 30 A55 55 0 1 1 55 85" fill="none" stroke="#1a8a4f" stroke-width="9" stroke-linecap="round"/>
+          <polygon points="55,85 40,72 68,68" fill="#1a8a4f"/>
+          <path d="M110 150 A55 55 0 1 1 165 95" fill="none" stroke="#0f4a2c" stroke-width="9" stroke-linecap="round"/>
+          <polygon points="165,95 180,108 152,112" fill="#0f4a2c"/>
+          <rect x="40" y="128" width="26" height="26" fill="#c98a2e" rx="2"/>
+          <rect x="70" y="122" width="24" height="32" fill="#8b6fd9" rx="2"/>
+          <rect x="98" y="130" width="22" height="24" fill="#4c8bdb" rx="2"/>
+        </svg>
+      </div>
+    </section>
+
+    <!-- STATS -->
+    <section class="stats-grid">
+      <div class="stat-card">
+        <div><div class="label">Total Pesantren</div><div class="value">1.245</div><div class="sub">Bergabung di ORBIT</div></div>
+        <div class="stat-icon si-1"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M17 21v-2a4 4 0 0 0-4-4H5a4 4 0 0 0-4 4v2"/><circle cx="9" cy="7" r="4"/><path d="M23 21v-2a4 4 0 0 0-3-3.87"/><path d="M16 3.13a4 4 0 0 1 0 7.75"/></svg></div>
+      </div>
+      <div class="stat-card">
+        <div><div class="label">Total Produk</div><div class="value">3.678</div><div class="sub">Produk tersedia</div></div>
+        <div class="stat-icon si-2"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M6 2 3 7v13a2 2 0 0 0 2 2h14a2 2 0 0 0 2-2V7l-3-5Z"/><path d="M3 7h18M9 11a3 3 0 0 0 6 0"/></svg></div>
+      </div>
+      <div class="stat-card">
+        <div><div class="label">Transaksi Berhasil</div><div class="value">872</div><div class="sub">Transaksi</div></div>
+        <div class="stat-icon si-3"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><circle cx="9" cy="21" r="1"/><circle cx="19" cy="21" r="1"/><path d="M2.05 2.05h2l2.66 12.42a2 2 0 0 0 2 1.58h9.78a2 2 0 0 0 2-1.58l1.65-7.42H5.12"/></svg></div>
+      </div>
+      <div class="stat-card">
+        <div><div class="label">Total Penghematan Sumber Daya</div><div class="value">12,4 Ton</div><div class="sub">Setara limbah terkelola</div></div>
+        <div class="stat-icon si-4"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M11 20A7 7 0 0 1 9.8 6.1C15.5 5 17 4.48 19 2c1 2 2 4.18 2 8 0 5.5-4.78 10-10 10Z"/><path d="M2 21c0-3 1.85-5.36 5.08-6C9.5 14.52 11 13.48 11 12"/></svg></div>
+      </div>
+    </section>
+
+    <div class="content-grid">
+      <div>
+        <!-- KATEGORI -->
+        <section class="panel">
+          <div class="panel-head"><h2>Kategori Produk</h2><a href="#" class="see-all">Lihat Semua</a></div>
+          <div class="cat-grid">
+            <a href="#" class="cat-card">
+              <div class="cat-icon" style="background:#fdf1de; color:#c98a2e;"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M10 2v4L7 9v11a2 2 0 0 0 2 2h6a2 2 0 0 0 2-2V9l-3-3V2"/><path d="M9 2h6"/></svg></div>
+              <div class="cat-name">Minyak Jelantah</div>
+            </a>
+            <a href="#" class="cat-card">
+              <div class="cat-icon" style="background:#f0e6d9; color:#8a5a2b;"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M20 12a8 8 0 1 0-8 8"/><path d="M4 12h16v6a2 2 0 0 1-2 2H6a2 2 0 0 1-2-2z"/></svg></div>
+              <div class="cat-name">Pupuk & Kompos</div>
+            </a>
+            <a href="#" class="cat-card">
+              <div class="cat-icon" style="background:#e9f1fd; color:#4c8bdb;"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><rect x="3" y="4" width="18" height="16" rx="2"/><path d="M3 10h18M9 4v16"/></svg></div>
+              <div class="cat-name">Kain & Tekstil</div>
+            </a>
+            <a href="#" class="cat-card">
+              <div class="cat-icon" style="background:var(--green-100); color:var(--green-700);"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M17 2 21 6 17 10"/><path d="M3 12v-1a4 4 0 0 1 4-4h14"/><path d="M7 22 3 18 7 14"/><path d="M21 12v1a4 4 0 0 1-4 4H3"/></svg></div>
+              <div class="cat-name">Kerajinan & Daur Ulang</div>
+            </a>
+            <a href="#" class="cat-card">
+              <div class="cat-icon" style="background:#e9f5ea; color:#3f9e4d;"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M4 19.5A2.5 2.5 0 0 1 6.5 17H20"/><path d="M6.5 2H20v20H6.5A2.5 2.5 0 0 1 4 19.5v-15A2.5 2.5 0 0 1 6.5 2Z"/></svg></div>
+              <div class="cat-name">Perlengkapan Santri</div>
+            </a>
+            <a href="#" class="cat-card">
+              <div class="cat-icon" style="background:#eef1ef; color:#5b6b62;"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><rect x="3" y="3" width="7" height="7" rx="1"/><rect x="14" y="3" width="7" height="7" rx="1"/><rect x="3" y="14" width="7" height="7" rx="1"/><rect x="14" y="14" width="7" height="7" rx="1"/></svg></div>
+              <div class="cat-name">Lainnya</div>
+            </a>
+          </div>
+        </section>
+
+        <!-- PRODUK -->
+        <section class="panel">
+          <div class="panel-head"><h2>Produk Terbaru</h2><a href="#" class="see-all">Lihat Semua</a></div>
+          <div class="product-grid">
+
+            <div class="product-card">
+              <img class="product-img" alt="Minyak Jelantah Filter" src="data:image/svg+xml;utf8,<svg xmlns='http://www.w3.org/2000/svg' width='300' height='200'><rect width='300' height='200' fill='%23f4e9c9'/><rect x='40' y='40' width='40' height='120' rx='6' fill='%23e0a916'/><rect x='95' y='40' width='40' height='120' rx='6' fill='%23e0a916'/><rect x='150' y='40' width='40' height='120' rx='6' fill='%23e0a916'/><rect x='205' y='40' width='40' height='120' rx='6' fill='%23e0a916'/></svg>">
+              <div class="product-body">
+                <div class="product-name">Minyak Jelantah Filter</div>
+                <div class="product-pesantren">Ponpes Darul Falah</div>
+                <div class="product-price">Rp 8.000 / Liter</div>
+                <div class="product-foot">
+                  <span class="loc"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M20 10c0 6-8 12-8 12s-8-6-8-12a8 8 0 0 1 16 0Z"/><circle cx="12" cy="10" r="3"/></svg> Jawa Barat</span>
+                  <span class="heart">♡</span>
+                </div>
+              </div>
+            </div>
+
+            <div class="product-card">
+              <img class="product-img" alt="Kain Perca Katun Mix Warna" src="data:image/svg+xml;utf8,<svg xmlns='http://www.w3.org/2000/svg' width='300' height='200'><rect width='300' height='200' fill='%232b3a4a'/><rect x='20' y='30' width='260' height='30' fill='%23c94f4f'/><rect x='20' y='70' width='260' height='30' fill='%233a6ea5'/><rect x='20' y='110' width='260' height='30' fill='%23e0d24a'/><rect x='20' y='150' width='260' height='30' fill='%237a4fc9'/></svg>">
+              <div class="product-body">
+                <div class="product-name">Kain Perca Katun Mix Warna</div>
+                <div class="product-pesantren">Ponpes Al-Hidayah</div>
+                <div class="product-price">Rp 15.000 / Kg</div>
+                <div class="product-foot">
+                  <span class="loc"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M20 10c0 6-8 12-8 12s-8-6-8-12a8 8 0 0 1 16 0Z"/><circle cx="12" cy="10" r="3"/></svg> Jawa Tengah</span>
+                  <span class="heart">♡</span>
+                </div>
+              </div>
+            </div>
+
+            <div class="product-card">
+              <img class="product-img" alt="Pupuk Kompos Organik" src="data:image/svg+xml;utf8,<svg xmlns='http://www.w3.org/2000/svg' width='300' height='200'><rect width='300' height='200' fill='%23e7ddb8'/><circle cx='150' cy='140' r='90' fill='%233d2a1a'/><circle cx='150' cy='95' r='22' fill='%232f9e3f'/><path d='M150 95 L150 60' stroke='%232f9e3f' stroke-width='6'/></svg>">
+              <div class="product-body">
+                <div class="product-name">Pupuk Kompos Organik</div>
+                <div class="product-pesantren">Ponpes Baitul Izzah</div>
+                <div class="product-price">Rp 2.500 / Kg</div>
+                <div class="product-foot">
+                  <span class="loc"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M20 10c0 6-8 12-8 12s-8-6-8-12a8 8 0 0 1 16 0Z"/><circle cx="12" cy="10" r="3"/></svg> Jawa Timur</span>
+                  <span class="heart">♡</span>
+                </div>
+              </div>
+            </div>
+
+            <div class="product-card">
+              <img class="product-img" alt="Pot Tanam Kayu Daur Ulang" src="data:image/svg+xml;utf8,<svg xmlns='http://www.w3.org/2000/svg' width='300' height='200'><rect width='300' height='200' fill='%23e9e3d6'/><rect x='60' y='90' width='180' height='80' rx='6' fill='%23a9764a'/><rect x='60' y='90' width='180' height='14' fill='%238a5c34'/><circle cx='110' cy='75' r='18' fill='%232f9e3f'/><circle cx='150' cy='65' r='20' fill='%233dbd52'/><circle cx='190' cy='78' r='16' fill='%232f9e3f'/></svg>">
+              <div class="product-body">
+                <div class="product-name">Pot Tanam Kayu Daur Ulang</div>
+                <div class="product-pesantren">Ponpes Al-Mu'min</div>
+                <div class="product-price">Rp 12.000 / Pcs</div>
+                <div class="product-foot">
+                  <span class="loc"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M20 10c0 6-8 12-8 12s-8-6-8-12a8 8 0 0 1 16 0Z"/><circle cx="12" cy="10" r="3"/></svg> DI Yogyakarta</span>
+                  <span class="heart">♡</span>
+                </div>
+              </div>
+            </div>
+
+          </div>
+        </section>
+      </div>
+
+      <!-- SIDEBAR RIGHT -->
+      <div>
+        <section class="panel">
+          <div class="panel-head"><h2>Forum Diskusi</h2><a href="#" class="see-all">Lihat Semua</a></div>
+
+          <div class="forum-item">
+            <div class="forum-avatar fa-1"><svg viewBox="0 0 24 24" width="18" height="18" fill="none" stroke="currentColor" stroke-width="2"><circle cx="12" cy="8" r="4"/><path d="M4 21c0-4.4 3.6-8 8-8s8 3.6 8 8"/></svg></div>
+            <div>
+              <span class="forum-tag tag-diskusi">Diskusi</span>
+              <div class="forum-title">Pengalaman Mengelola Minyak Jelantah menjadi Biodiesel</div>
+              <div class="forum-meta">
+                <span><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><circle cx="12" cy="8" r="4"/><path d="M4 21c0-4.4 3.6-8 8-8s8 3.6 8 8"/></svg> Ponpes As-Salam</span>
+                <span><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M21 15a2 2 0 0 1-2 2H7l-4 4V5a2 2 0 0 1 2-2h14a2 2 0 0 1 2 2z"/></svg> 24</span>
+                <span><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><circle cx="12" cy="12" r="10"/><path d="M12 6v6l4 2"/></svg> 5 jam lalu</span>
+              </div>
+            </div>
+          </div>
+
+          <div class="forum-item">
+            <div class="forum-avatar fa-2"><svg viewBox="0 0 24 24" width="18" height="18" fill="none" stroke="currentColor" stroke-width="2"><circle cx="12" cy="8" r="4"/><path d="M4 21c0-4.4 3.6-8 8-8s8 3.6 8 8"/></svg></div>
+            <div>
+              <span class="forum-tag tag-tanya">Tanya Jawab</span>
+              <div class="forum-title">Kain Perca untuk Produk Bernilai Tinggi, Bagaimana Caranya?</div>
+              <div class="forum-meta">
+                <span><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><circle cx="12" cy="8" r="4"/><path d="M4 21c0-4.4 3.6-8 8-8s8 3.6 8 8"/></svg> Ponpes Al-Ikhlas</span>
+                <span><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M21 15a2 2 0 0 1-2 2H7l-4 4V5a2 2 0 0 1 2-2h14a2 2 0 0 1 2 2z"/></svg> 18</span>
+                <span><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><circle cx="12" cy="12" r="10"/><path d="M12 6v6l4 2"/></svg> 1 hari lalu</span>
+              </div>
+            </div>
+          </div>
+
+          <div class="forum-item">
+            <div class="forum-avatar fa-3"><svg viewBox="0 0 24 24" width="18" height="18" fill="none" stroke="currentColor" stroke-width="2"><path d="M17 21v-2a4 4 0 0 0-4-4H5a4 4 0 0 0-4 4v2"/><circle cx="9" cy="7" r="4"/><path d="M23 21v-2a4 4 0 0 0-3-3.87"/><path d="M16 3.13a4 4 0 0 1 0 7.75"/></svg></div>
+            <div>
+              <span class="forum-tag tag-kolab">Kolaborasi</span>
+              <div class="forum-title">Mencari Mitra untuk Pengolahan Sampah Organik</div>
+              <div class="forum-meta">
+                <span><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><circle cx="12" cy="8" r="4"/><path d="M4 21c0-4.4 3.6-8 8-8s8 3.6 8 8"/></svg> Ponpes Nurul Huda</span>
+                <span><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M21 15a2 2 0 0 1-2 2H7l-4 4V5a2 2 0 0 1 2-2h14a2 2 0 0 1 2 2z"/></svg> 32</span>
+                <span><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><circle cx="12" cy="12" r="10"/><path d="M12 6v6l4 2"/></svg> 2 hari lalu</span>
+              </div>
+            </div>
+          </div>
+
+          <button class="btn-block">Buat Topik Baru</button>
+        </section>
+      </div>
+    </div>
+
+    <!-- HOW IT WORKS -->
+    <section class="how-panel">
+      <h2>Bagaimana ORBIT Bekerja?</h2>
+      <div class="how-row">
+        <div class="how-step">
+          <div class="how-num"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M9 11l3 3L22 4"/><path d="M21 12v7a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2V5a2 2 0 0 1 2-2h11"/></svg></div>
+          <div><h3>Daftar & Verifikasi</h3><p>Pesantren mendaftar dan melengkapi data.</p></div>
+        </div>
+        <div class="how-arrow">→</div>
+        <div class="how-step">
+          <div class="how-num"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M20.6 12.6 12 21.2a2 2 0 0 1-2.8 0l-8.4-8.4a2 2 0 0 1-.6-1.4V4a2 2 0 0 1 2-2h7.4a2 2 0 0 1 1.4.6l8.4 8.4a2 2 0 0 1 0 2.8Z"/><circle cx="7.5" cy="7.5" r="1.5"/></svg></div>
+          <div><h3>Jual / Tawarkan Produk</h3><p>Tawarkan produk atau sumber daya berlebih.</p></div>
+        </div>
+        <div class="how-arrow">→</div>
+        <div class="how-step">
+          <div class="how-num"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><circle cx="11" cy="11" r="7"/><path d="m21 21-4.35-4.35"/></svg></div>
+          <div><h3>Temukan Kebutuhan</h3><p>Cari produk atau sumber daya yang dibutuhkan.</p></div>
+        </div>
+        <div class="how-arrow">→</div>
+        <div class="how-step">
+          <div class="how-num"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M12 2 4 6v6c0 5 3.4 8.7 8 10 4.6-1.3 8-5 8-10V6l-8-4Z"/><path d="m9 12 2 2 4-4"/></svg></div>
+          <div><h3>Transaksi Aman</h3><p>Lakukan transaksi mudah dan aman di ORBIT.</p></div>
+        </div>
+        <div class="how-arrow">→</div>
+        <div class="how-step">
+          <div class="how-num"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M17 2 21 6 17 10"/><path d="M3 12v-1a4 4 0 0 1 4-4h14"/><path d="M7 22 3 18 7 14"/><path d="M21 12v1a4 4 0 0 1-4 4H3"/></svg></div>
+          <div><h3>Bersama Kurangi Limbah</h3><p>Wujudkan pesantren mandiri dan lingkungan lestari.</p></div>
+        </div>
+      </div>
+    </section>
+
+    <!-- VALUES -->
+    <section class="values-row">
+      <div class="value-item">
+        <div class="value-icon"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M17 2 21 6 17 10"/><path d="M3 12v-1a4 4 0 0 1 4-4h14"/><path d="M7 22 3 18 7 14"/><path d="M21 12v1a4 4 0 0 1-4 4H3"/></svg></div>
+        <div><h3>Ekonomi Sirkular</h3><p>Mengubah limbah menjadi nilai ekonomi.</p></div>
+      </div>
+      <div class="value-item">
+        <div class="value-icon"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M17 21v-2a4 4 0 0 0-4-4H5a4 4 0 0 0-4 4v2"/><circle cx="9" cy="7" r="4"/><path d="M23 21v-2a4 4 0 0 0-3-3.87"/><path d="M16 3.13a4 4 0 0 1 0 7.75"/></svg></div>
+        <div><h3>Antar Pesantren</h3><p>Memperkuat silaturahmi dan kolaborasi bisnis.</p></div>
+      </div>
+      <div class="value-item">
+        <div class="value-icon"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M12 2 4 6v6c0 5 3.4 8.7 8 10 4.6-1.3 8-5 8-10V6l-8-4Z"/></svg></div>
+        <div><h3>Nilai Islam</h3><p>Anti-mubazir, kebermanfaatan, dan keberkahan.</p></div>
+      </div>
+      <div class="value-item">
+        <div class="value-icon"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><rect x="4" y="4" width="16" height="16" rx="2"/><path d="M9 9h6v6H9z"/></svg></div>
+        <div><h3>Teknologi Digital</h3><p>Platform modern, mudah digunakan, akses kapan saja.</p></div>
+      </div>
+    </section>
+
+  </main>
+</div>
+</body>
+</html>
